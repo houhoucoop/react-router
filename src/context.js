@@ -1,4 +1,5 @@
 import { createContext } from 'react'
 
-const RouterContext = createContext()
-export default RouterContext
+const Context = createContext(null)
+
+export default Context

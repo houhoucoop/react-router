@@ -1,6 +1,5 @@
-import React from 'react'
-import styles from './styles.module.css'
-
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { default as Router } from './router'
+export { default as Switch } from './switch'
+export { default as Route } from './route'
+export { default as Link } from './link'
+export { useHistory, useLocation, useParams, useRouterMatch } from './hooks'

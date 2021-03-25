@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { createBrowserHistory } from 'history'
-import RouterContext from './context'
+import Context from './context'
 
 const history = createBrowserHistory()
+const computeRootMatch = (pathname) => ({
+  path: '/',
+  url: '/',
+  params: {},
+  isExact: pathname === '/'
+})
 
 const Router = ({ children }) => {
   const [location, setLocation] = useState(history.location)
@@ -14,12 +20,11 @@ const Router = ({ children }) => {
 
   const value = {
     history,
-    location
+    location,
+    match: computeRootMatch(location.pathname)
   }
 
-  return (
-    <RouterContext.Provider value={value}>{children}</RouterContext.Provider>
-  )
+  return <Context.Provider value={value}>{children}</Context.Provider>
 }
 
 export default Router
