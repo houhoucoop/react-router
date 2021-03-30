@@ -7,21 +7,35 @@
 ## Install
 
 ```bash
-npm install --save react-router
+npm install --save @houhoucoop/react-router
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
+import { Router, Switch, Route, Link } from 'react-router'
 
-import MyComponent from 'react-router'
-import 'react-router/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const App = () => {
+  return (
+    <>
+      <Router>
+        <ul>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/story'>Story</Link></li>
+          <li><Link to='/about/houhou'>About Houhou</Link></li>
+        </ul>
+        <Switch>
+          <Route path='/'>Home</Route>
+          <Route path='/story'>Story</Route>
+          <Route path='/about/:id'>
+            <About />
+          </Route>
+          <Route>No match</Route>
+        </Switch>
+      </Router>
+    </>
+  )
 }
 ```
 
